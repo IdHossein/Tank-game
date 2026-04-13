@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tank Defense</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <h1 class="site-title">Tank Defense</h1>
+  </header>
+
+  <main class="site-main">
+    <section class="game-section" aria-label="Game Area">
+      <div class="game-wrapper" id="gameWrapper">
+
+        <canvas id="gameCanvas" width="800" height="600"
+                aria-label="Tank Defense Game Canvas"
+                role="img"></canvas>
+
+        <!-- HUD Panel (glassmorphism) -->
+        <aside class="hud-panel" id="hudPanel" aria-label="Game Status">
+          <div class="hud-item">
+            <span class="hud-label">Score</span>
+            <span class="hud-value" id="scoreDisplay">0</span>
+          </div>
+          <div class="hud-item">
+            <span class="hud-label">Level</span>
+            <span class="hud-value" id="levelDisplay">1</span>
+          </div>
+          <div class="hud-item">
+            <span class="hud-label">Record</span>
+            <span class="hud-value" id="highScoreDisplay">0</span>
+          </div>
+        </aside>
+
+        <!-- Start Screen -->
+        <div class="game-overlay" id="startScreen" role="dialog" aria-modal="true" aria-label="Start Screen">
+          <div class="overlay-panel">
+            <h2>🎮 Tank Defense</h2>
+            <p class="subtitle">Defend your base from enemy forces!</p>
+            <div class="controls-info">
+              <p><kbd>←</kbd> <kbd>→</kbd> &nbsp; Move Tank</p>
+              <p><kbd>Space</kbd> &nbsp; Fire</p>
+            </div>
+            <button class="game-btn" id="startBtn">Start Game</button>
+          </div>
+        </div>
+
+        <!-- Game Over Screen -->
+        <div class="game-overlay hidden" id="gameOverScreen" role="dialog" aria-modal="true" aria-label="Game Over">
+          <div class="overlay-panel">
+            <h2 id="gameOverTitle">💥 Game Over!</h2>
+            <div class="score-display">
+              <p>Score: <strong id="finalScore">0</strong></p>
+              <p>High Score: <strong id="finalHighScore">0</strong></p>
+            </div>
+            <button class="game-btn" id="restartBtn">Play Again</button>
+          </div>
+        </div>
+
+        <!-- Level Up Notification -->
+        <div class="level-up-msg hidden" id="levelUpMsg" aria-live="polite">
+          <span id="levelUpText">Level 2!</span>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Controls: <kbd>←</kbd> <kbd>→</kbd> Move &nbsp;|&nbsp; <kbd>Space</kbd> Fire</p>
+  </footer>
+
+  <script src="game.js"></script>
+</body>
+</html>
